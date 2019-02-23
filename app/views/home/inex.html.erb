@@ -1,0 +1,12 @@
+require 'twilio-ruby'
+
+account_sid = "ACdd175fbd2e067fca43678beb7b3f4f64" 
+auth_token = "24e7ea8b8625f1e21ea293c00ae6413c"   # Your Auth Token from www.twilio.com/console
+
+@client = Twilio::REST::Client.new account_sid, auth_token
+message = @client.messages.create(
+    body: "Hello from Ruby",
+    to: "+16462449401",    # Replace with your phone number
+    from: "+16467607420")  # Replace with your Twilio number
+
+puts message.sid
