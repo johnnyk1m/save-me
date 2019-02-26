@@ -64,3 +64,5 @@ end
 gem 'devise', '~> 4.2'
 
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
+
+gem 'whenever', '~> 0.9.4'

@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_one :car, dependent: :destroy
   has_one :destin, dependent: :destroy
 
-  def create_destin
+  # def create_destin
     # the rest of the destination info will be nil
     #   but the user_id will be associated with the destination
-    Destin.create(user_id: self.id)
-  end
+    # Destin.create(user_id: self.id)
+  # end
 end

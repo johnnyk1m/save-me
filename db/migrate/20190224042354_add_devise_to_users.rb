@@ -9,7 +9,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
 
       t.string :first_name
       t.string :last_name
-      t.datetime :born
+      t.datetime :date_of_birth
       t.string :height
       t.string :nation
 

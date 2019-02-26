@@ -1,11 +1,19 @@
 class HomeController < ApplicationController
 
   def index
-      # @cars = Car.all
-      # @course = Course.all
-      # @teacher = Teacher.all
-      # @student = Student.all
-      # @user = User.all
+    @car = Car.all
+    @destin = Destin.all
+    @agenda = Agenda.all
+    @contact = Contact.all
+    @user = User.all
+  end
+
+  def show
+    @cars = Car.all
+    @destin = Destin.all
+    @agenda = Agenda.all
+    @contact = Contact.all
+    @user = User.all
   end
 
 end

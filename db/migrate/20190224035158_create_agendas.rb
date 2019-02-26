@@ -4,8 +4,8 @@ class CreateAgendas < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.text :address
-      t.string :gps
-
+      t.float :latitude
+      t.float :longitude
       t.references :user
       t.timestamps
     end

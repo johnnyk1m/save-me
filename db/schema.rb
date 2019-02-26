@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 2019_02_24_042354) do
     t.string "title"
     t.text "description"
     t.text "address"
-    t.string "gps"
+    t.float "latitude"
+    t.float "longitude"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,7 +55,8 @@ ActiveRecord::Schema.define(version: 2019_02_24_042354) do
     t.date "end_date"
     t.date "alarm_date"
     t.text "address"
-    t.string "coords"
+    t.float "latitude"
+    t.float "longitude"
     t.text "voice_msg"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_02_24_042354) do
     t.string "encrypted_password", default: "", null: false
     t.string "first_name"
     t.string "last_name"
-    t.datetime "born"
+    t.datetime "date_of_birth"
     t.string "height"
     t.string "nation"
     t.string "reset_password_token"

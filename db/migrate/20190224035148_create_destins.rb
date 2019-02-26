@@ -6,7 +6,8 @@ class CreateDestins < ActiveRecord::Migration[5.2]
       t.date :end_date
       t.date :alarm_date
       t.text :address
-      t.string :coords
+      t.float :latitude
+      t.float :longitude
       t.text :voice_msg
       t.references :user
 

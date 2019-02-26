@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="google" content="notranslate"/>
     <title><%= yield(:title) %> -SaveMe-</title>
 
     <%= csrf_meta_tags %>
@@ -8,40 +9,38 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="favicon" href="./favicon.ico">
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="favicon" href="/favicon.ico">
+    <link rel="stylesheet" href="/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
 
-  <body>
-
-  <p class="navbar-text pull-right">
-    <% if user_signed_in? %>
-
-      Logged in as <strong><%= current_user.first_name %></strong>
-
-      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-warning">Edit Profile</button>
-      <% end %>
-      <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-danger">Logout</button>
-      <% end %>
-
-    <% else %>
-
-      <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-warning">Sign Up</button>
-      <% end %>
-      <%= link_to new_user_session_path, :class => 'navbar-link' do %>
-      <button type="button" class="btn btn-Success">Log In</button>
-      <% end %>
- 
-    <% end %>
-  </p>
-
-
-    <%= yield %>
   
+  <% if user_signed_in? %>
 
-  </body>
+    <body class="signedin">
+      <div class="row navbar fixed-top">
+        <div class="navbar-text ml-auto">
+          Hi, <strong><%= current_user.first_name %>.</strong>
+          <%= link_to root_path, :class => 'navbar-link' do %>
+            <button type="button" class="btn btn-Primary">Home</button>
+          <% end %>
+          <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+            <button type="button" class="btn btn-warning">Edit Profile</button>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link' do %>
+            <button type="button" class="btn btn-danger">Logout</button>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+    </body>
+
+  <% else %>
+
+    <body class="signedout">
+      <%= yield %>
+    </body>
+
+  <% end %>
+
 </html>

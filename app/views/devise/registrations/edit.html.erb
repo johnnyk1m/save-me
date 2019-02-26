@@ -1,6 +1,6 @@
 <% content_for :title, "Edit Profile" %>
 
-<div class="card">
+<div class="card mx-auto" style="width: 30rem; margin-top: 5rem;">
   <div class="card-body">
     <h2 class="card-title"><strong>Edit Profile</strong></h2>
 
@@ -20,18 +20,18 @@
         <%= f.email_field :email%>
       </div><br />
       <div class="field">
-        <%= f.label :born %><br />
-        <%= f.date_field :born %>
+        <%= f.label :date_of_birth %><br />
+        <%= f.date_field :date_of_birth %>
       </div><br />
       <div class="field">
-        <%= f.label :height %><br />
+        <%= f.label :height_in_inches %><br />
         <%= f.text_field :height%>
       </div><br />
       <div class="field">
-        <%= f.label :nation %><br />
+        <%= f.label :nationality %><br />
         <%= f.text_field :nation%>
       </div><br />
-    <% end %>
+    
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -57,14 +57,15 @@
       </div><br />
 
       <div class="actions">
-        <%= f.submit "Update" %>
+        <%= f.submit "Update", class: "btn btn-warning" %>
       </div><br /><br />
+  <% end %>
   
-  </div>
+
+    <h3>Delete my account</h3>
+    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+    <br />
+    <%= link_to "Back", :back %>
+
 </div>
-
-<h2>Cancel my account</h2>
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-<br />
-<%= link_to "Back", :back %>
-
+</div>
