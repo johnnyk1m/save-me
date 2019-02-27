@@ -8,9 +8,7 @@
         
       <br>
       
-      <%= link_to new_user_destin_path(current_user) do %>
-        <button type="button" class="btn btn-warning">new destination</button>
-      <% end %>
+      
 
       <button type="button" class="btn btn-danger">test sms</button>
     </div>
@@ -19,18 +17,50 @@
 
       <div class="card">
         <div class="card-body">
+        <% if @destin.length == 0 %>
+          <%= link_to new_user_destin_path(current_user) do %>
+          <button type="button" class="btn btn-warning">New</button>
+          <% end %>
+        <% else %>
+          <%= link_to edit_user_destin_path(current_user, :id) do %>
+          <button type="button" class="btn btn-secondary">Edit</button>
+          <% end %>
+          
+          <%= link_to user_destin_path(current_user, @destin), method: :delete do %>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <% end %>
+        <% end %>
+          <br><br>
+
           <h4 class="card-title">title</h4>
+          
           <% @destin.each do |d| %>
-            From: <%= d.start_date %><br>
-            To: <%= d.end_date %><br>
-            Address: <%= d.address %><br>
-            <br> %>
+            <strong>From: </strong><%= d.start_date %><br>
+            <strong>To: </strong><%= d.end_date %><br>
+            <strong>Address: </strong><%= d.address %><br>
+            <br>
           <% end %>
         </div>
       </div>
 
       <div class="card">
         <div class="card-body">
+
+          <% if @contact.length == 0 %>
+            <%= link_to new_user_contact_path(current_user) do %>
+            <button type="button" class="btn btn-warning">New</button>
+            <% end %>
+          <% else %>
+            <%= link_to edit_user_contact_path(current_user, :id) do %>
+            <button type="button" class="btn btn-secondary">Edit</button>
+            <% end %>
+            
+            <%= link_to user_contact_path(current_user, @contact), method: :delete do %>
+            <button type="button" class="btn btn-danger">Delete</button>
+            <% end %>
+          <% end %>
+          <br><br>
+
           <h4 class="card-title">Emergency Contacts</h4>
           <% @contact.each do |c| %>
             <a href="/contacts/<%= c.id %>">
@@ -48,6 +78,20 @@
 
       <div class="card">
         <div class="card-body">
+          <% if @car.length == 0 %>
+            <%= link_to new_destin_agenda_path(current_user) do %>
+            <button type="button" class="btn btn-warning">New</button>
+            <% end %>
+          <% else %>
+            <%= link_to edit_destin_agenda_path(current_user, :id) do %>
+            <button type="button" class="btn btn-secondary">Edit</button>
+            <% end %>
+            <%= link_to destin_agenda_path(current_user, @agenda), method: :delete do %>
+            <button type="button" class="btn btn-danger">Delete</button>
+            <% end %>
+          <% end %>
+            <br><br>
+
           <h4 class="card-title">Agenda</h4>
           <% @agenda.each do |a| %>
           <a href="/agendas/<%= a.id %>">
@@ -60,6 +104,20 @@
 
       <div class="card">
         <div class="card-body">
+          <% if @car.length == 0 %>
+            <%= link_to new_user_car_path(current_user) do %>
+            <button type="button" class="btn btn-warning">New</button>
+            <% end %>
+          <% else %>
+            <%= link_to edit_user_car_path(current_user, :id) do %>
+            <button type="button" class="btn btn-secondary">Edit</button>
+            <% end %>
+            <%= link_to user_car_path(current_user, @car), method: :delete do %>
+            <button type="button" class="btn btn-danger">Delete</button>
+            <% end %>
+          <% end %>
+            <br><br>
+
           <h4 class="card-title">Vehicle</h4>
           <% @car.each do |c| %>
           <a href="/cars/<%= c.id %>">

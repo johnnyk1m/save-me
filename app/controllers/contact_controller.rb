@@ -5,7 +5,7 @@ class ContactController < ApplicationController
   end
 
   def show
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:user_id])
   end
   
   def new
@@ -13,26 +13,28 @@ class ContactController < ApplicationController
   end
 
   def create
-   @contact = Contact.new(contact_params)
-    if @contact.valid?
-     @contact.save
-     redirect_to contacts_path
+    @contact = Contact.new(contact_params)
+    @user = current_user
+    if @contact.save
+      redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
   def edit
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:user_id])
   end
 
   def update
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:user_id])
     @contact.update(contact_params)
-    redirect_to contact_path
+    redirect_to root_path
   end
 
   def destroy
-    Contact.destroy(params[:id])
-    redirect_to contacts_path
+    Contact.destroy(params[:user_id])
+    redirect_to root_path
   end
 
   def contact_params

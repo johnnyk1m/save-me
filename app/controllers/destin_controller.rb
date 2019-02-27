@@ -14,32 +14,31 @@ class DestinController < ApplicationController
   def create
     @destin = Destin.new(destin_params)
     @user = current_user
-    if @destin.valid?
-     @destin.save
-     redirect_to root_path
+    if @destin.save
+      redirect_to root_path
     else
       redirect_to root_path
     end
   end
 
   def edit
-    @destin = Destin.find(params[:id])
+    @destin = Destin.find(params[:user_id])
   end
 
   def update
-    @destin = Destin.find(params[:id])
+    @destin = Destin.find(params[:user_id])
     @destin.update(destin_params)
     redirect_to destin_path
   end
 
   def destroy
-    Destin.destroy(params[:id])
-    redirect_to destins_path
+    @destin = Destin.destroy(params[:user_id])
+    redirect_to root_path
   end
 
   private
 
   def destin_params
-    params.require(:destin).permit(:title, :start_date, :end_date, :alarm_date, :address, :latitude, :longitude)
+    params.require(:destin).permit(:title, :start_date, :end_date, :alarm_date, :address, :latitude, :longitude, :voice_msg, :user_id)
   end
 end

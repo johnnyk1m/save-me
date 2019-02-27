@@ -5,7 +5,7 @@ class AgendaController < ApplicationController
     end
   
     def show
-      @agenda = Agenda.find(params[:id])
+      @agenda = Agenda.find(params[:user_id])
     end
     
     def new
@@ -13,26 +13,28 @@ class AgendaController < ApplicationController
     end
   
     def create
-     @agenda = Agenda.new(agenda_params)
-      if @agenda.valid?
-       @agenda.save
-       redirect_to agendas_path
+      @agenda = Agenda.new(agenda_params)
+      @user = current_user
+      if @agenda.save
+        redirect_to root_path
+      else
+        redirect_to root_path
       end
     end
   
     def edit
-      @agenda = Agenda.find(params[:id])
+      @agenda = Agenda.find(params[:user_id])
     end
   
     def update
-      @agenda = Agenda.find(params[:id])
+      @agenda = Agenda.find(params[:user_id])
       @agenda.update(agenda_params)
-      redirect_to agenda_path
+      redirect_to root_path
     end
   
     def destroy
-    Agenda.destroy(params[:id])
-    redirect_to agendas_path
+    Agenda.destroy(params[:user_id])
+    redirect_to root_path
     end
   
     def agenda_params

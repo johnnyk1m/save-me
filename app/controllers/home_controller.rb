@@ -8,12 +8,4 @@ class HomeController < ApplicationController
     @user = User.all
   end
 
-  def show
-    @cars = Car.all
-    @destin = Destin.all
-    @agenda = Agenda.all
-    @contact = Contact.all
-    @user = User.all
-  end
-
 end

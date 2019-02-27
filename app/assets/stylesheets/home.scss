@@ -10,11 +10,12 @@ body {
   animation: fadeIn 1.5s forwards; 
   // font-family: 'Montserrat', sans-serif;
   // background: linear-gradient(to bottom, rgb(11, 22, 5) 0%,rgba(212,189,255,0) 100%);
+  color: antiquewhite;
 }
 
 .signedin {
   background: url("saveme.png") no-repeat center center fixed;
-  background-size: cover;
+  background-size: contain;
 }
 
 .signedout {
@@ -60,7 +61,7 @@ a.shine:hover {
 
 .navbar {
   background-color: rgba(24, 18, 18, 0.84);
-  color: white;
+  // color: white;
 }
 
 .row {
@@ -76,7 +77,7 @@ a.shine:hover {
 .card {
   // border-radius: 1.5rem;
   background-color: rgba(14, 10, 10, 0.75);
-  color: whitesmoke;
+  // color: whitesmoke;
   margin: 1rem;
   padding: 1rem;
   // text-align: center;

@@ -5,6 +5,8 @@
 
       <%= form_with(model: @destin, url: user_destin_index_path(current_user), method: :post) do |f| %>
 
+        <%= f.hidden_field(:user_id, value: current_user.id) %>
+
         <div class="field">
           <%= f.label :title %><br />
           <%= f.text_field :title %>
@@ -35,6 +37,10 @@
           <%= f.text_field :longitude %>
         </div>
         <br>
+        <div class="field">
+          <%= f.label :text_to_speech %>
+          <%= f.text_area :voice_msg %>
+        </div>
         <div class="actions">
           <%= f.submit "Create Destination", {class: "btn btn-warning"} %>
         </div>
