@@ -1,4 +1,4 @@
-class AgendaController < ApplicationController
+class AgendasController < ApplicationController
   
     def index
       @agendas = Agenda.all

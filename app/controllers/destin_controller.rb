@@ -4,7 +4,7 @@ class DestinController < ApplicationController
   end
 
   def show
-    @destin = Destin.find(destin_params)
+    @destin = Destin.find(params[:user_id])
   end
   
   def new

@@ -4,4 +4,9 @@ class Contact < ApplicationRecord
   # validates :mobile,   presence: true
 
   belongs_to :user
+
+  def contact_full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

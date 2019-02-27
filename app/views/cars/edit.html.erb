@@ -1,0 +1,33 @@
+<% content_for :title, "Edit Vehicle" %>
+ <div class="card mx-auto" style="width: 30rem;">
+  <div class="card-body">
+    <h2 class="card-title"><strong>Edit Vehicle</strong></h2>
+
+      <%= form_with(model: @car, url: user_car_path(current_user), method: :patch) do |f| %>
+
+        <%= f.hidden_field(:user_id, value: current_user.id) %>
+
+        <div class="field">
+          <%= f.label :make %>
+          <%= f.text_field :make %>
+        </div><br>
+        <div class="field">
+          <%= f.label :model %>
+          <%= f.text_field :model %>
+        </div>
+        <div class="field">
+          <%= f.label :year %>
+          <%= f.integer :year %>
+        </div>
+        <div class="field">
+          <%= f.label :color %>
+          <%= f.text_field :color %>
+        </div>
+        
+        <div class="actions">
+          <%= f.submit "Edit car", {class: "btn btn-warning"} %>
+        </div>
+        <%= link_to "Back", :back, {class: "back-link"} %>
+      <% end %>
+    </div>
+  </div>

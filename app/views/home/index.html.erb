@@ -7,8 +7,6 @@
       <h2>Next Destination</h2>
         
       <br>
-      
-      
 
       <button type="button" class="btn btn-danger">test sms</button>
     </div>
@@ -31,13 +29,19 @@
           <% end %>
         <% end %>
           <br><br>
-
-          <h4 class="card-title">title</h4>
           
           <% @destin.each do |d| %>
+          <h4 class="card-title"><%= d.title.capitalize %></h4>
             <strong>From: </strong><%= d.start_date %><br>
             <strong>To: </strong><%= d.end_date %><br>
+            <strong>Alarm: </strong><%= d.alarm_date %><br>
             <strong>Address: </strong><%= d.address %><br>
+            <h5>GPS Coordinates</h5>
+            <strong>Lat: </strong><%= d.latitude %><br>
+            <strong>Long: </strong><%= d.longitude %><br>
+            <strong>Text-to-Speech Voice Message </strong><br>
+            <%= d.voice_msg %><br>
+
             <br>
           <% end %>
         </div>
@@ -78,7 +82,7 @@
 
       <div class="card">
         <div class="card-body">
-          <% if @car.length == 0 %>
+          <% if @agenda.length == 0 %>
             <%= link_to new_destin_agenda_path(current_user) do %>
             <button type="button" class="btn btn-warning">New</button>
             <% end %>

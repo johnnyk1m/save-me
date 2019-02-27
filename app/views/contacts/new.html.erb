@@ -1,0 +1,33 @@
+<% content_for :title, "Create Contact" %>
+ <div class="card mx-auto" style="width: 30rem;">
+  <div class="card-body">
+    <h2 class="card-title"><strong>Create Contact</strong></h2>
+
+      <%= form_with(model: @contact, url: user_contacts_path(current_user), method: :get) do |f| %>
+
+        <%= f.hidden_field(:user_id, value: current_user.id) %>
+
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div><br>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="field">
+          <%= f.label :mobile %>
+          <%= f.integer :mobile %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Create Contact", {class: "btn btn-warning"} %>
+        </div>
+        <%= link_to "Back", :back, {class: "back-link"} %>
+      <% end %>
+    </div>
+  </div>
