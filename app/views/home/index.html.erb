@@ -4,11 +4,8 @@
 
     <div class="row justify-content-center">
 
-      <h2>Next Destination</h2>
-        
-      <br>
-
-      <button type="button" class="btn btn-danger">test sms</button>
+      <button type="button" class="btn btn-danger mx-auto">PANIC! SEND ALERTS NOW!
+      </button>
     </div>
 
     <div class="row justify-content-center">
@@ -29,7 +26,7 @@
           <% end %>
         <% end %>
           <br><br>
-          
+          <h2 class="card-title">Destination</h2>
           <% @destin.each do |d| %>
           <h4 class="card-title"><%= d.title.capitalize %></h4>
             <strong>From: </strong><%= d.start_date %><br>
@@ -65,9 +62,9 @@
           <% end %>
           <br><br>
 
-          <h4 class="card-title">Emergency Contacts</h4>
+          <h2 class="card-title">Emergency Contacts</h2>
           <% @contact.each do |c| %>
-            <a href="/contacts/<%= c.id %>">
+            <a href="/user/user_id/contacts/<%= c.id %>">
             <%= c.first_name %> 
             <%= c.last_name %></a><br>
             Mobile : <%= c.mobile %><br>
@@ -96,9 +93,9 @@
           <% end %>
             <br><br>
 
-          <h4 class="card-title">Agenda</h4>
+          <h2 class="card-title">Agenda</h2>
           <% @agenda.each do |a| %>
-          <a href="/agendas/<%= a.id %>">
+          <a href="/destin/destin_id/agendas/<%= a.id %>">
           <%= a.title %></a><br>
           Address: <%= a.address %><br>
           <br><br>
@@ -122,12 +119,11 @@
           <% end %>
             <br><br>
 
-          <h4 class="card-title">Vehicle</h4>
+          <h2 class="card-title">Vehicle</h2>
           <% @car.each do |c| %>
-          <a href="/cars/<%= c.id %>">
-          <%= c.make %><br>
-          <%= c.model %><br>
-          <%= c.year %><br>
+          <h5><%= c.make %>
+          <%= c.model %></h5><br>
+          <%= c.year %> / 
           <%= c.color %><br>
           </a><br>
           <% end %>

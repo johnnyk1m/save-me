@@ -28,7 +28,7 @@ class DestinController < ApplicationController
   def update
     @destin = Destin.find(params[:user_id])
     @destin.update(destin_params)
-    redirect_to destin_path
+    redirect_to root_path
   end
 
   def destroy

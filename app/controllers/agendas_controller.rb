@@ -5,7 +5,7 @@ class AgendasController < ApplicationController
     end
   
     def show
-      @agenda = Agenda.find(params[:user_id])
+      @agenda = Agenda.find(params[:id])
     end
     
     def new

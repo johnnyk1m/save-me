@@ -3,7 +3,7 @@
   <div class="card-body">
     <h2 class="card-title"><strong>Edit Destination</strong></h2>
 
-      <%= form_with(model: @destin, url: user_destin_index_path(current_user), method: :patch) do |f| %>
+      <%= form_with(model: @destin, url: user_destin_path(current_user), method: :patch) do |f| %>
 
         <%= f.hidden_field(:user_id, value: current_user.id) %>
 
@@ -21,7 +21,7 @@
         </div>
         <div class="field">
           <%= f.label :alarm_date %><br />
-          <%= f.date_field :alarm_date %>
+          <%= f.datetime_field :alarm_date %>
         </div>
         <div class="field">
           <%= f.label :address %><br />

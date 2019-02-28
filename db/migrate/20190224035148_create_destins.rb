@@ -4,7 +4,7 @@ class CreateDestins < ActiveRecord::Migration[5.2]
       t.string :title
       t.date :start_date
       t.date :end_date
-      t.date :alarm_date
+      t.datetime :alarm_date
       t.text :address
       t.float :latitude
       t.float :longitude
