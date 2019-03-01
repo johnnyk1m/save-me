@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   database: save-me_development
-  host: localhost
-  username: postgres
-  password: <%= ENV["POSTGRESQL"]%>
+  # host: localhost
+  # username: postgres
+  # password: <%= ENV["POSTGRESQL"]%>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
