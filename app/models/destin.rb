@@ -17,7 +17,7 @@ class Destin < ApplicationRecord
     body = "HELP ME! I've fallen and I can't get up! Alarm started at #{alarm_date_str}."
     message = @client.messages.create(
       :from => @twilio_number,
-      :to => "+19737049764",
+      :to => "+16462449401",
       :body => "HELP ME! I've fallen and I can't get up! Alarm started at #{alarm_date_str}.",
     )
   end
