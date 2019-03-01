@@ -1,4 +1,8 @@
 class SendSMS
+    def self.alarmed 
+
+    end
+
     def run
     require 'twilio-ruby'
 
@@ -7,8 +11,8 @@ class SendSMS
 
     @client = Twilio::REST::Client.new account_sid, auth_token
     message = @client.messages.create(
-        body: "Greetings! The current time is: 153700 ZUOBWHSYY1EGLZL",
-        to: "+16462449401",    # your phone number
+        body: "Emergency! Help Me!!!",
+        to: "+#{@contact.mobile}",    # your phone number
         from: "+16467607420")  # your Twilio number
 
     puts message.sid

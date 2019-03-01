@@ -1,6 +1,8 @@
 namespace :send_sms do
   desc "toggle alarm"
-  task my_task: :environment do
+  task run: :environment do
+  
+  p "Sending Alerts.." 
 
   end
 

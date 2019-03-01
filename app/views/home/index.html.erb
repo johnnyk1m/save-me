@@ -12,21 +12,13 @@
 
       <div class="card">
         <div class="card-body">
-        <% if @destin.length == 0 %>
+         <% if @destin.length == 0 %>
           <%= link_to new_user_destin_path(current_user) do %>
-          <button type="button" class="btn btn-warning">New</button>
+          <button type="button" class="btn btn-warning">New Destination</button>
           <% end %>
-        <% else %>
-          <%= link_to edit_user_destin_path(current_user, :id) do %>
-          <button type="button" class="btn btn-secondary">Edit</button>
-          <% end %>
-          
-          <%= link_to user_destin_path(current_user, @destin), method: :delete do %>
-          <button type="button" class="btn btn-danger">Delete</button>
-          <% end %>
-        <% end %>
-          <br><br>
-          <h2 class="card-title">Destination</h2>
+          <% else %>
+        
+          <br>
           <% @destin.each do |d| %>
           <h4 class="card-title"><%= d.title.capitalize %></h4>
             <strong>From: </strong><%= d.start_date %><br>
@@ -40,6 +32,17 @@
             <%= d.voice_msg %><br>
 
             <br>
+       
+          <%= link_to edit_user_destin_path(d, :id) do %>
+          <button type="button" class="btn btn-secondary">Edit</button>
+          <% end %>
+          
+          <%= link_to user_destin_path(d, @destin), method: :delete do %>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <% end %><br>
+          <strong style="color:green; font-size:1.5rem; float:right;">Alarm ON 
+          </strong>
+        <% end %>
           <% end %>
         </div>
       </div>
@@ -47,29 +50,29 @@
       <div class="card">
         <div class="card-body">
 
-          <% if @contact.length == 0 %>
+          <% if @contacts.length < 4 %>
             <%= link_to new_user_contact_path(current_user) do %>
             <button type="button" class="btn btn-warning">New</button>
-            <% end %>
-          <% else %>
-            <%= link_to edit_user_contact_path(current_user, :id) do %>
-            <button type="button" class="btn btn-secondary">Edit</button>
-            <% end %>
-            
-            <%= link_to user_contact_path(current_user, @contact), method: :delete do %>
-            <button type="button" class="btn btn-danger">Delete</button>
             <% end %>
           <% end %>
           <br><br>
 
           <h2 class="card-title">Emergency Contacts</h2>
-          <% @contact.each do |c| %>
-            <a href="/user/user_id/contacts/<%= c.id %>">
+          <% @contacts.each do |c| %>
             <%= c.first_name %> 
-            <%= c.last_name %></a><br>
+            <%= c.last_name %><br>
             Mobile : <%= c.mobile %><br>
             e-mail : <%= c.email %><br>
+            
+            <%= link_to edit_user_contact_path(c, :id) do %>
+            <button type="button" class="btn btn-secondary">Edit</button>
+            <% end %> 
+            <%= link_to user_contact_path(c, :id), method: :delete do %>
+            <button type="button" class="btn btn-danger">Delete</button>
+            <% end %>
+            <br><br>
           <% end %>
+            
         </div>
       </div>
 
@@ -107,14 +110,14 @@
         <div class="card-body">
           <% if @car.length == 0 %>
             <%= link_to new_user_car_path(current_user) do %>
-            <button type="button" class="btn btn-warning">New</button>
+            <button type="button" class="btn btn-warning">New</button> 
             <% end %>
           <% else %>
             <%= link_to edit_user_car_path(current_user, :id) do %>
             <button type="button" class="btn btn-secondary">Edit</button>
             <% end %>
             <%= link_to user_car_path(current_user, @car), method: :delete do %>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger">Delete</button> 
             <% end %>
           <% end %>
             <br><br>

@@ -4,8 +4,14 @@ class HomeController < ApplicationController
     @car = Car.all
     @destin = Destin.all
     @agenda = Agenda.all
-    @contact = Contact.all
+    @contacts = Contact.all
     @user = User.all
+  end
+
+  def sendSMSAlarm
+    @user = User.all
+    @destin = Destin.all
+    @contact = Contact.all
   end
 
 end

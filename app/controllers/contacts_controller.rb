@@ -33,12 +33,13 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    Contact.destroy(params[:user_id])
+    @contact = Contact.find(params[:user_id])
+    @contact.destroy
     redirect_to root_path
   end
 
   def contact_params
-    params.require(:contact).permit(:title, :first_name, :last_name, :mobile, :email, :user_id)
+    params.require(:contact).permit(:first_name, :last_name, :mobile, :email, :user_id)
   end
 
 end
